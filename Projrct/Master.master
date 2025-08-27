@@ -1,0 +1,231 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="Master.master.cs" Inherits="Master" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD/xhtml 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server"></asp:ContentPlaceHolder>
+    
+    <style type="text/css">
+        @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+
+        /* General Styles */
+        body {
+            font-family: 'Trebuchet MS', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e0f2f1; /* Light green background for overall site */
+        }
+
+        /* Header Styles */
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #ffffff; /* White background for contrast */
+            color: #004d26; /* Dark green for text */
+            padding: 20px 40px;
+            font-size: 28px;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .header:hover {
+            background-color: #b2dfdb; /* Light teal on hover */
+            transform: scale(1.02); /* Slight zoom effect */
+        }
+
+        .header-title {
+            display: flex;
+            align-items: center;
+            font-size: 34px;
+            font-weight: bold;
+            color: #004d26; /* Dark green for title */
+            text-shadow: 1px 1px 2px #000;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .header-title:hover {
+            color: #76b041; /* Changed hover color to a bright green */
+            transform: scale(1.05); /* Slightly enlarge on hover */
+        }
+
+        .header-title img {
+            margin-right: 15px;
+            width: 100px;
+            height: 100px;
+        }
+
+        /* Navigation Styles */
+        .nav {
+            display: flex; /* Ensures buttons stay in a single line */
+            justify-content: flex-start; /* Aligns buttons to the left */
+            align-items: center; /* Aligns buttons vertically */
+            padding: 0; /* Removes any default padding */
+            margin-right:20px; /* Centers the navigation bar */
+            margin-left: -20px; /* Adjust this value to shift the panel left */
+            gap: 10px; /* Adds spacing between buttons */
+        }
+
+        .nav a {
+            position: relative;
+            display: inline-block; /* Ensures buttons stay inline */
+            color: white; /* White text for readability */
+            text-align: center;
+            padding: 15px 20px; /* Adjusted for uniform button size */
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+            cursor: pointer;
+            border-radius: 5px; /* Rounded corners for buttons */
+            background-color: #004d26; /* Dark green background */
+            border: 2px solid #76b041; /* Bright green border */
+            overflow: hidden;
+            z-index: 1;
+            transition: color 0.3s ease, background-color 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav a::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: #76b041; /* Bright green hover effect */
+            z-index: 0;
+            transition: left 0.3s ease;
+        }
+
+        .nav a:hover::before {
+            left: 0; /* Slides the hover effect */
+        }
+
+        .nav a span {
+            position: relative;
+            z-index: 1;
+            transition: color 0.3s ease;
+        }
+
+        .nav a:hover span {
+            color: #004d26; 
+            /* Changes text color on hover */
+        }
+
+        /* Icon Styles */
+        .nav .icon {
+            margin-right: 8px;
+            width: 20px; /* Default icon size */
+            height: 20px; /* Default icon size */
+            vertical-align: middle;
+        }
+
+        .nav a.home .icon {
+            width: 20px; /* Smaller size for Home icon */
+            height: 20px; /* Smaller size for Home icon */
+        }
+        .admin-nav {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            background-color: #004d26; /* Dark green background */
+            padding: 10px 20px;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .admin-nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .admin-nav a:hover {
+            background-color: #76b041; /* Bright green on hover */
+            color: #004d26; /* Dark green text on hover */
+        }
+        /* Content Styles */
+        .content {
+            padding: 40px;
+            background-color: #ffffff;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .content:hover {
+            background-color: #d7f3e3; /* Soft green on hover */
+            transform: scale(1.02); /* Slight zoom effect */
+        }
+
+        /* Footer Styles */
+        .footer {
+            background-color: #004d26; /* Dark green background */
+            color: #ffffff; /* White text for readability */
+            text-align: center;
+            padding: 20px;
+            font-size: 16px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .footer:hover {
+            background-color: #76b041; /* Lighter green on hover */
+            transform: scale(1.02); /* Slight zoom effect */
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        
+        <!-- Header Section -->
+        <div class="header">
+           <a href="Home.aspx" style="text-decoration: none; color: inherit;">
+            <div class="header-title">
+                <img src="images/logo/WhatsApp%20Image%202024-12-15%20at%2014.15.42_dea9c775.jpg" alt="FURNISH & FLOURISH Icon" />
+                <span>FURNISH & FLOURISH</span>
+            </div>
+            </a>
+         <div class="nav" id="userNev" runat="server">
+            <a href="Home.aspx" class="home"><span>Home</span></a>
+            <a href="Product.aspx" class="product"><span>Product</span></a>
+            <a href="Cart.aspx" class="cart"><span>Cart</span></a>
+            <a href="AboutUs.aspx" class="about"><span>About Us</span></a>
+            <a href="ContactUs.aspx" class="about"><span>Contact Us</span></a>
+            <a href="Default.aspx?action=logout" class="profile"><span>Logout</span></a>
+        </div>
+
+        </div>
+        <!-- Content Section -->
+        <div class="content">
+            <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+        </div>
+
+        <!-- Footer Section -->
+        <div class="footer">
+            &copy; 2024 FURNISH & FLOURISH. All rights reserved.
+        </div>
+    </form>
+    <script>
+        document.addEventListener('copy', function (event) {
+            event.clipboardData.setData('text/plain', '🖕'); // Middle finger emoji
+            event.preventDefault();
+        });
+    </script>
+</body>
+</html>

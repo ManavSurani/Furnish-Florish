@@ -1,0 +1,198 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterAdmin.master.cs" Inherits="MasterAdmin" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD/xhtml 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head id="Head1" runat="server">
+    <title>Admin - FURNISH & FLOURISH</title>
+    <asp:ContentPlaceHolder id="head" runat="server"></asp:ContentPlaceHolder>
+    
+    <style type="text/css">
+        @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css');
+
+        /* General Styles */
+        body {
+            font-family: 'Trebuchet MS', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e0f2f1; /* Light green background for overall site */
+        }
+
+        /* Header Styles */
+        .header {
+            display: flex;
+            flex-direction: column; /* Stack children vertically */
+            align-items: flex-start; /* Align items to the left */
+            background-color: #ffffff; /* White background for contrast */
+            color: #004d26; /* Dark green for text */
+            padding: 20px 40px;
+            font-size: 28px;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+            position: relative; /* For positioning the profile circle */
+        }
+
+        .header:hover {
+            background-color: #b2dfdb; /* Light teal on hover */
+            transform: scale(1.02); /* Slight zoom effect */
+        }
+
+        .header-title {
+            display: flex;
+            align-items: center;
+            font-size: 34px;
+            font-weight: bold;
+            color: #004d26; /* Dark green for title */
+            text-shadow: 1px 1px 2px #000;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .header-title:hover {
+            color: #76b041; /* Changed hover color to a bright green */
+            transform: scale(1.05); /* Slightly enlarge on hover */
+        }
+
+        .header-title img {
+            margin-right: 15px;
+            width: 100px;
+            height: 100px;
+        }
+
+        /* Admin Profile Circle */
+        .admin-profile {
+            position: absolute;
+            top: 20px;
+            right: 40px;
+            width: 80px; /* Increased size */
+            height: 80px; /* Increased size */
+            border-radius: 50%; /* Makes it circular */
+            background: linear-gradient(135deg, #004d26, #76b041); /* Gradient background */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 32px; /* Increased font size */
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+            transition: all 0.3s ease;
+        }
+
+        .admin-profile:hover {
+            transform: scale(1.1); /* Slightly enlarge on hover */
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); /* Enhanced shadow on hover */
+        }
+
+        /* Admin Navigation Styles */
+        .admin-nav {
+            display: flex;
+            justify-content: center; /* Center the navigation links */
+            align-items: center;
+            background-color: #004d26; /* Dark green background */
+            padding: 10px 20px;
+            margin-top: 20px; /* Add margin to separate from the title */
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 80%; /* Adjust width as needed */
+            margin-left: auto; /* Center the navigation bar */
+            margin-right: auto; /* Center the navigation bar */
+        }
+
+        .admin-nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 15px;
+            font-size: 16px;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .admin-nav a:hover {
+            background-color: #76b041; /* Bright green on hover */
+            color: #004d26; /* Dark green text on hover */
+        }
+
+        /* Content Styles */
+        .content {
+            padding: 40px;
+            background-color: #ffffff;
+            margin: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .content:hover {
+            background-color: #d7f3e3; /* Soft green on hover */
+            transform: scale(1.02); /* Slight zoom effect */
+        }
+
+        /* Footer Styles */
+        .footer {
+            background-color: #004d26; /* Dark green background */
+            color: #ffffff; /* White text for readability */
+            text-align: center;
+            padding: 20px;
+            font-size: 16px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        .footer:hover {
+            background-color: #76b041; /* Lighter green on hover */
+            transform: scale(1.02); /* Slight zoom effect */
+        }
+    </style>
+</head>
+<body>
+    <form id="form1" runat="server">
+        
+        <!-- Header Section -->
+        <div class="header">
+           <a href="AHome.aspx" style="text-decoration: none; color: inherit;">
+            <div class="header-title">
+                <img src="images/logo/WhatsApp%20Image%202024-12-15%20at%2014.15.42_dea9c775.jpg" alt="FURNISH & FLOURISH Icon" />
+                <span>FURNISH & FLOURISH</span>
+            </div>
+            </a>
+            <!-- Admin Profile Circle -->
+            <div class="admin-profile" onclick="location.href='AdminProfile.aspx';">
+                A
+            </div>
+            <!-- Admin Navigation -->
+            <div class="admin-nav" id="adminNav" runat="server">
+                <a href="AHome.aspx"><span>Dashboard</span></a>
+                <a href="ManageUsers.aspx"><span>Manage Users</span></a>
+                <a href="ManageSupplier.aspx"><span>Manage Supplier</span></a>
+                <a href="ManageProducts.aspx"><span>Manage Products</span></a>
+                <a href="ManageOrders.aspx"><span>Manage Orders</span></a>
+                <a href="Report.aspx"><span>Report</span></a>
+                <a href="Default.aspx?action=logout" class="profile"><span>Logout</span></a>
+            </div>
+        </div>
+
+        <!-- Content Section -->
+        <div class="content">
+            <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server"></asp:ContentPlaceHolder>
+        </div>
+
+        <!-- Footer Section -->
+        <div class="footer">
+            &copy; 2024 FURNISH & FLOURISH. All rights reserved.
+        </div>
+    </form>
+    <script>
+        document.addEventListener('copy', function (event) {
+            event.clipboardData.setData('text/plain', '🖕'); // Middle finger emoji
+            event.preventDefault();
+        });
+    </script>
+</body>
+</html>

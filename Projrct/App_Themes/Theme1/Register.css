@@ -1,0 +1,92 @@
+﻿* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #e0f2f1; /* Updated background color */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .register-container {
+            background-color: #ffffff; /* White background for contrast */
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+        }
+        .register-container:hover
+        {
+            background-color:#d7f3e3;
+            transform: scale(0.95); 
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            }
+        .register-container h1 {
+            margin-bottom: 20px;
+            font-size: 24px;
+            color: #004d26; /* Dark green for text */
+            transition: color 0.3s ease, transform 0.3s ease; /* Added hover transition */
+        }
+
+        .register-container h1:hover {
+            color: #76b041; /* Changed hover color to a bright green */
+            transform: scale(1.05); /* Slightly enlarge on hover */
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #004d26; /* Updated border color */
+            border-radius: 5px;
+            font-size: 16px;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Added hover transition */
+        }
+
+        .form-control:hover {
+            border-color: #76b041; /* Changed hover border color to a bright green */
+            box-shadow: 0 0 5px rgba(118, 176, 65, 0.5); /* Added box shadow on hover */
+        }
+
+        .btn-register {
+            width: 100%;
+            background-color: #004d26; /* Updated button color */
+            color: #ffffff;
+            border: none;
+            padding: 10px 0;
+            border-radius: 5px;
+            font-size: 18px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s ease; /* Added transform transition */
+        }
+
+        .btn-register:hover {
+            background-color: #76b041; /* Updated hover color to match Register title */
+            transform: scale(1.05); /* Slightly enlarge on hover */
+        }
+
+        .form-link {
+            margin-top: 15px;
+        }
+
+        .form-link a {
+            color: #004d26; /* Updated link color */
+            text-decoration: none;
+            transition: color 0.3s ease, text-decoration 0.3s ease; /* Added hover transition */
+        }
+
+        .form-link a:hover {
+            color: #76b041; /* Changed hover color to a bright green */
+            text-decoration: underline;
+        }
+
+        .error-message {
+            color: red;
+        }

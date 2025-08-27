@@ -318,3 +318,12 @@ The statement has been terminated.
    at System.Web.HttpResponse.Redirect(String url)
    at Checkout.btnSubmitBilling_Click(Object sender, EventArgs e) in c:\Vs code\Projrct\Checkout.aspx.cs:line 180
 
+27-08-2025 20:43:03: Thread was being aborted.
+   at System.Threading.Thread.AbortInternal()
+   at System.Threading.Thread.Abort(Object stateInfo)
+   at System.Web.HttpResponse.AbortCurrentThread()
+   at System.Web.HttpResponse.End()
+   at System.Web.HttpResponse.Redirect(String url, Boolean endResponse, Boolean permanent)
+   at System.Web.HttpResponse.Redirect(String url)
+   at Checkout.btnSubmitBilling_Click(Object sender, EventArgs e) in c:\Users\Jay\OneDrive\Documents\GitHub\Furnish-Florish\Projrct\Checkout.aspx.cs:line 180
+
